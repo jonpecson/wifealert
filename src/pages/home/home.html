@@ -1,14 +1,32 @@
-<ion-header>
+<!--<ion-header>
   <ion-navbar>
     <ion-title>
       Ionic Blank
     </ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header>-->
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="page">
+
+  <h1>Wife Alert</h1>
+
+  <div class="loader"></div>
+
+  <div class="bottom-container">
+    
+    <ion-item>
+      <ion-range [(ngModel)]="radius" #radiusVal min="40" max="300" color="primary" pin="true" step="20">
+      </ion-range>
+
+      <ion-label color="primary" id="lbl">Fence Parameter (Meters)</ion-label>
+      
+
+    </ion-item>
+
+    <button ion-button large outline block (click)="setGeofence(radiusVal.value)" id="cta" color="primary">Set Geofence</button>
+
+      <p *ngIf="error">{{error}}</p>
+    
+  </div>
+
 </ion-content>
